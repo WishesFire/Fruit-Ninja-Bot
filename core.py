@@ -108,7 +108,9 @@ if __name__ == '__main__':
                     loop.create_task(template.search_on_image(picture_gray, lst_temp[3]))
                 ]
                 loop.run_until_complete(asyncio.wait(tasks))
-                print(CORDS)
+                if CORDS:
+                    for x, y in CORDS:
+                        Movement.focus_on_fruit(x, y)
 
                 time.sleep(1)
             except Exception as e:
